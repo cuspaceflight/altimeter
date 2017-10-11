@@ -1,0 +1,86 @@
+Bill Of Materials
+=================
+
+Source file: altimeter.xml
+Date: 2017-10-11T20:55:08.484823
+
+Parts Missing Footprints
+------------------------
+
+
+Parts Missing Order Codes
+-------------------------
+TP2    TESTPAD         agg:TESTPAD
+TP3    TESTPAD         agg:TESTPAD
+TP7    TESTPAD         agg:TESTPAD
+TP5    TESTPAD         agg:TESTPAD
+TP6    TESTPAD         agg:TESTPAD
+TP4    TESTPAD         agg:TESTPAD
+TP1    TESTPAD         agg:TESTPAD
+P1     SWD_TC          agg:TC2030-NL
+X1     M3 Hole         agg:M3_MOUNT
+X2     M3 Hole         agg:M3_MOUNT
+
+Inconsistent Order Codes
+------------------------
+
+
+Vendor Specific BOMs
+--------------------
+  Digikey
+  ~~~~~~~
+1,AI-1027-TWT-3V-R,1x SOUNDER AI-1027-TWT-3V-R LS1
+
+
+  Farnell
+  ~~~~~~~
+9238689,5,5x 47k 0603-L
+2455292,1,1x 2.2uH VLF252012MT
+2072517,2,2x 10k 0402
+2072515,1,1x 100R 0402-L
+9238379,2,2x 120R 0603-L
+2254940,1,1x ADP1607 LFCSP-2x2
+2290328,2,2x LED 0603-LED
+1510761 ,1,1x NFET SOT-23
+1759381,1,1x 1uF 0402
+2331061,1,1x 243k 0603-L
+2358234,1,1x MICROSD MICROSD_MOLEX_50339
+2496834,1,1x 100n 0603-L
+1657936,2,2x 10uF 0805
+1828860,9,9x 100nF 0402
+1758939,2,2x 8pF 0402-L
+9239111,3,3x 100R 0402
+2362662,1,1x MS5611-01BA03 MS5611
+1702629 ,1,1x BATT KEYSTONE2460
+2506952,1,1x 26MHz XTAL-20x16
+2456965,1,1x STM32F411CxUx QFN-48-EP-ST
+2426952,2,2x 4.7uF 0402
+2483918 ,1,1x 330k 0603-L
+
+
+Assembly BOM
+------------
+AI-1027-TWT-3V-R     1   SOUNDER         AI-1027-TWT-3V-R LS1
+9238689              5   47k             0603-L          R1 R3 R5 R7 R8
+2455292              1   2.2uH           VLF252012MT     L1
+2072517              2   10k             0402            R10 R12
+2072515              1   100R            0402-L          R15
+9238379              2   120R            0603-L          R13 R14
+2254940              1   ADP1607         LFCSP-2x2       IC2
+2290328              2   LED             0603-LED        D1 D2
+1510761              1   NFET            SOT-23          Q1
+1759381              1   1uF             0402            C17
+2331061              1   243k            0603-L          R9
+2358234              1   MICROSD         MICROSD_MOLEX_503398-1892 U1
+2496834              1   100n            0603-L          C4
+1657936              2   10uF            0805            C2 C3
+1828860              9   100nF           0402            C1 C11 C13 C14 C15 C16 C5 C6 C9
+1758939              2   8pF             0402-L          C7 C8
+9239111              3   100R            0402            R2 R4 R6
+2362662              1   MS5611-01BA03   MS5611          IC1
+1702629              1   BATT            KEYSTONE2460    J1
+2506952              1   26MHz           XTAL-20x16      Y1
+2456965              1   STM32F411CxUx   QFN-48-EP-ST    IC3
+2426952              2   4.7uF           0402            C10 C12
+2483918              1   330k            0603-L          R11
+

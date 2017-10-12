@@ -2,7 +2,7 @@
 
 (general
   (thickness 1.6)
-  (drawings 14)
+  (drawings 15)
   (tracks 0)
   (zones 0)
   (modules 52)
@@ -36,7 +36,7 @@
 
 (general
   (thickness 1.6)
-  (drawings 14)
+  (drawings 15)
   (tracks 0)
   (zones 0)
   (modules 52)
@@ -2217,6 +2217,9 @@
       (net 2 3v3))
   )
 
+  (gr_text mc955 (at 94.8 138.4) (layer F.SilkS)
+    (effects (font (size 1.2 1.2) (thickness 0.2)))
+  )
   (gr_text PWR (at 106.8 74) (layer F.SilkS) (tstamp 59E00BA0)
     (effects (font (size 1.2 1.2) (thickness 0.2)))
   )

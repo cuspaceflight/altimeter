@@ -30,10 +30,10 @@ EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
+Title "Altimeter"
+Date "2017-10-26"
+Rev "1"
+Comp "CUSF - Matt Coates"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -447,17 +447,6 @@ F 2 "agg:TESTPAD" H 2850 3700 50  0001 L CNN
 F 3 "" H 2850 3850 50  0001 C CNN
 	1    2850 3850
 	0    1    1    0   
-$EndComp
-$Comp
-L TESTPAD TP4
-U 1 1 59DE7138
-P 1700 3650
-F 0 "TP4" H 1700 3750 50  0000 L CNN
-F 1 "TESTPAD" H 1700 3575 50  0001 L CNN
-F 2 "agg:TESTPAD" H 1700 3500 50  0001 L CNN
-F 3 "" H 1700 3650 50  0001 C CNN
-	1    1700 3650
-	-1   0    0    1   
 $EndComp
 $Comp
 L SOUNDER LS1
@@ -1104,11 +1093,8 @@ Wire Wire Line
 	2550 3950 2550 4000
 Wire Wire Line
 	2500 3950 2550 3950
-Connection ~ 1750 3650
 Wire Wire Line
 	1750 3750 1800 3750
-Wire Wire Line
-	1700 3650 1800 3650
 Wire Wire Line
 	1750 3850 1800 3850
 Wire Wire Line
@@ -1788,4 +1774,7 @@ NoConn ~ 7050 1250
 NoConn ~ 7050 1150
 Text Notes 7800 700  0    60   Italic 0
 COMPLETE
+Wire Wire Line
+	1800 3650 1750 3650
+Connection ~ 1750 3650
 $EndSCHEMATC

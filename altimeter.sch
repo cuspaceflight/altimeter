@@ -30,10 +30,10 @@ EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
+Title "Altimeter"
+Date "2017-10-26"
+Rev "1"
+Comp "CUSF - Matt Coates"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -89,10 +89,10 @@ L R_Small R9
 U 1 1 59DE83E8
 P 2650 1700
 F 0 "R9" H 2700 1700 50  0000 L CNN
-F 1 "243k" H 2700 1600 50  0000 L CNN
+F 1 "205k" H 2700 1600 50  0000 L CNN
 F 2 "agg:0603-L" H 2650 1700 50  0001 C CNN
-F 3 "http://www.farnell.com/datasheets/1723857.pdf" H 2650 1700 50  0001 C CNN
-F 4 "2331061" H 2650 1700 60  0001 C CNN "Farnell"
+F 3 "" H 2650 1700 50  0001 C CNN
+F 4 "2116925" H 2650 1700 60  0001 C CNN "Farnell"
 	1    2650 1700
 	-1   0    0    -1  
 $EndComp
@@ -204,7 +204,7 @@ Boost Converter:
 Text Notes 650  2600 0    60   ~ 0
 Input Voltage Range: 0.8v to Vout\nNominal Input Voltage: 1.3v to 1.5v\nNominal Output Current: Max 300mA @ Vout = 3.3v, Vin = 1.3v\nDevice Requirements: 3.3v @ 160mA \nBattery: Energizer L91 AA - Cap = 3500mAh, Vin = 1.3v Min
 Text Notes 650  2700 0    60   ~ 0
-Vout = 1.259*(1+R1/R2) + 1uA*R1 = 3.2988v w/ R1 = 330k R2 = 243k
+Vout = 1.259*(1+R1/R2) + 0.1uA*R1 = 3.32v w/ R1 = 330k R2 = 205k
 $Comp
 L GND #PWR034
 U 1 1 59DE8434

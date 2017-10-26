@@ -2,14 +2,14 @@
 <export version="D">
   <design>
     <source>/home/matt/Documents/altimeter/altimeter.sch</source>
-    <date>Sat 14 Oct 2017 22:51:57 BST</date>
+    <date>Thu 26 Oct 2017 18:05:40 BST</date>
     <tool>Eeschema no-vcs-found-835c19f~60~ubuntu16.04.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
+        <title>Altimeter</title>
+        <company>CUSF - Matt Coates</company>
+        <rev>1</rev>
+        <date>2017-10-26</date>
         <source>altimeter.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
@@ -31,11 +31,10 @@
       <tstamp>59DE83CE</tstamp>
     </comp>
     <comp ref="R9">
-      <value>243k</value>
+      <value>205k</value>
       <footprint>agg:0603-L</footprint>
-      <datasheet>http://www.farnell.com/datasheets/1723857.pdf</datasheet>
       <fields>
-        <field name="Farnell">2331061</field>
+        <field name="Farnell">2116925</field>
       </fields>
       <libsource lib="device" part="R_Small"/>
       <sheetpath names="/" tstamps="/"/>

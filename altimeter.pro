@@ -1,4 +1,4 @@
-update=Wed 11 Oct 2017 19:01:05 BST
+update=Thu 26 Oct 2017 17:40:17 BST
 version=1
 last_client=kicad
 [general]
@@ -56,3 +56,13 @@ LibName22=atmel
 LibName23=contrib
 LibName24=../agg-kicad/agg-kicad
 LibName25=/home/matt/Documents/Jarvis/Library/adp1607
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceAjustPassiveValues=0
+LabSize=60
+ERC_TestSimilarLabels=1

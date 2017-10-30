@@ -54,7 +54,7 @@ LibName20=siliconi
 LibName21=opto
 LibName22=atmel
 LibName23=contrib
-LibName24=../agg-kicad/agg-kicad
+LibName24=../../agg-kicad/agg-kicad
 LibName25=/home/matt/Documents/Jarvis/Library/adp1607
 [schematic_editor]
 version=1

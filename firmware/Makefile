@@ -98,6 +98,7 @@ include $(CHIBIOS)/os/rt/rt.mk
 include $(CHIBIOS)/os/rt/ports/ARMCMx/compilers/GCC/mk/port_v7m.mk
 # Other files (optional).
 include $(CHIBIOS)/test/rt/test.mk
+include ../fatfs/fatfs.mk
 
 BOARDSRC=board.c
 BOARDINC=.
@@ -114,8 +115,9 @@ CSRC = $(STARTUPSRC) \
        $(HALSRC) \
        $(PLATFORMSRC) \
        $(BOARDSRC) \
+       $(FATFSSRC) \
        $(TESTSRC) \
-       main.c ms5611.c measure.c status.c
+       main.c ms5611.c measure.c status.c microsd.c
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
@@ -146,7 +148,10 @@ ASMSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
 
 INCDIR = $(STARTUPINC) $(KERNINC) $(PORTINC) $(OSALINC) \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
-         $(CHIBIOS)/os/various
+         $(CHIBIOS)/os/various \
+         $(CHIBIOS)/os/various/fatfs_bindings \
+         $(CHIBIOS)/os/hal/lib/streams \
+         $(FATFSINC)
 
 #
 # Project, sources and paths

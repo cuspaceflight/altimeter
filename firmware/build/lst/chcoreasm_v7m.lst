@@ -1,8 +1,9 @@
-ARM GAS  /tmp/cchpOq9l.s 			page 1
+ARM GAS  /tmp/cc7Bl3ZU.s 			page 1
 
 
    1              	# 1 "../ChibiOS/os/rt/ports/ARMCMx/compilers/GCC/chcoreasm_v7m.s"
    1              	/*
+   1              	...
    0              	
    0              	
    2              	    ChibiOS - Copyright (C) 2006..2015 Giovanni Di Sirio.
@@ -57,10 +58,10 @@ ARM GAS  /tmp/cchpOq9l.s 			page 1
   12              	    but WITHOUT ANY WARRANTY; without even the implied warranty of
   13              	    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   14              	    GNU General Public License for more details.
+ARM GAS  /tmp/cc7Bl3ZU.s 			page 2
+
+
   15              	
-ARM GAS  /tmp/cchpOq9l.s 			page 2
-
-
   16              	    You should have received a copy of the GNU General Public License
   17              	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
   18              	*/
@@ -117,10 +118,10 @@ ARM GAS  /tmp/cchpOq9l.s 			page 1
   69              	/* Inclusion of the Cortex-Mx implementation specific parameters.*/
   70              	#include "cmparams.h"
    1              	/*
+ARM GAS  /tmp/cc7Bl3ZU.s 			page 3
+
+
   71              	
-ARM GAS  /tmp/cchpOq9l.s 			page 3
-
-
   72              	/*===========================================================================*/
   73              	/* Module pre-compile time settings.                                         */
   74              	/*===========================================================================*/
@@ -177,10 +178,10 @@ ARM GAS  /tmp/cchpOq9l.s 			page 1
  125              	 * @details This structure represents the inner stack frame during a context
  126              	 *          switch.
  127              	 */
+ARM GAS  /tmp/cc7Bl3ZU.s 			page 4
+
+
  128              	struct port_intctx {};
-ARM GAS  /tmp/cchpOq9l.s 			page 4
-
-
  129              	#endif /* defined(__DOXYGEN__) */
  130              	
  131              	/**
@@ -237,10 +238,10 @@ ARM GAS  /tmp/cchpOq9l.s 			page 1
  182              	
  183              	/*===========================================================================*/
  184              	/* External declarations.                                                    */
+ARM GAS  /tmp/cc7Bl3ZU.s 			page 5
+
+
  185              	/*===========================================================================*/
-ARM GAS  /tmp/cchpOq9l.s 			page 5
-
-
  186              	
  187              	/*===========================================================================*/
  188              	/* Module inline functions.                                                  */
@@ -297,10 +298,10 @@ ARM GAS  /tmp/cchpOq9l.s 			page 1
   80 0010 BDEC108A 	                vpop    {s16-s31}
   81              	#endif
   82 0014 BDE8F08F 	                pop     {r4, r5, r6, r7, r8, r9, r10, r11, pc}
+ARM GAS  /tmp/cc7Bl3ZU.s 			page 6
+
+
   83              	
-ARM GAS  /tmp/cchpOq9l.s 			page 6
-
-
   84              	/*--------------------------------------------------------------------------*
   85              	 * Start a thread by invoking its work function.
   86              	 *
@@ -357,15 +358,15 @@ ARM GAS  /tmp/cchpOq9l.s 			page 1
  137              	                movt    r3, #:upper16:SCB_ICSR
  138              	                mov     r2, ICSR_PENDSVSET
  139              	                str     r2, [r3, #0]
+ARM GAS  /tmp/cc7Bl3ZU.s 			page 7
+
+
  140              	                cpsie   i
-ARM GAS  /tmp/cchpOq9l.s 			page 7
-
-
  141              	#else /* !CORTEX_SIMPLIFIED_PRIORITY */
  142 0044 00DF     	                svc     #0
  143              	#endif /* !CORTEX_SIMPLIFIED_PRIORITY */
  144 0046 FEE7     	.L1:            b       .L1
-ARM GAS  /tmp/cchpOq9l.s 			page 8
+ARM GAS  /tmp/cc7Bl3ZU.s 			page 8
 
 
 DEFINED SYMBOLS

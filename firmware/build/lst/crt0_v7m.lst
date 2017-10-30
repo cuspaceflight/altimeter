@@ -1,8 +1,9 @@
-ARM GAS  /tmp/ccjqUBjm.s 			page 1
+ARM GAS  /tmp/ccP6RAbV.s 			page 1
 
 
    1              	# 1 "../ChibiOS/os/common/ports/ARMCMx/compilers/GCC/crt0_v7m.s"
    1              	/*
+   1              	...
    0              	
    0              	
    2              	    ChibiOS - Copyright (C) 2006..2015 Giovanni Di Sirio
@@ -57,10 +58,10 @@ ARM GAS  /tmp/ccjqUBjm.s 			page 1
   51              	/* Module pre-compile time settings.                                         */
   52              	/*===========================================================================*/
   53              	
+ARM GAS  /tmp/ccP6RAbV.s 			page 2
+
+
   54              	/**
-ARM GAS  /tmp/ccjqUBjm.s 			page 2
-
-
   55              	 * @brief   FPU initialization switch.
   56              	 */
   57              	#if !defined(CRT0_INIT_FPU) || defined(__DOXYGEN__)
@@ -117,10 +118,10 @@ ARM GAS  /tmp/ccjqUBjm.s 			page 1
  108              	#endif
  109              	
  110              	/**
+ARM GAS  /tmp/ccP6RAbV.s 			page 3
+
+
  111              	 * @brief   RAM areas initialization switch.
-ARM GAS  /tmp/ccjqUBjm.s 			page 3
-
-
  112              	 */
  113              	#if !defined(CRT0_INIT_RAM_AREAS) || defined(__DOXYGEN__)
  114              	#define CRT0_INIT_RAM_AREAS                 TRUE
@@ -177,10 +178,10 @@ ARM GAS  /tmp/ccjqUBjm.s 			page 1
  165              	 * Reset handler.
  166              	 */
  167              	                .align  2
+ARM GAS  /tmp/ccP6RAbV.s 			page 4
+
+
  168              	                .thumb_func
-ARM GAS  /tmp/ccjqUBjm.s 			page 4
-
-
  169              	                .global Reset_Handler
  170              	Reset_Handler:
  171              	                /* Interrupts are globally masked initially.*/
@@ -237,10 +238,10 @@ ARM GAS  /tmp/ccjqUBjm.s 			page 1
  222              	                /* Early initialization.*/
  223 005c FFF7FEFF 	                bl      __early_init
  224              	
+ARM GAS  /tmp/ccP6RAbV.s 			page 5
+
+
  225              	#if CRT0_INIT_STACKS == TRUE
-ARM GAS  /tmp/ccjqUBjm.s 			page 5
-
-
  226 0060 4FF05530 	                ldr     r0, =CRT0_STACKS_FILL_PATTERN
  227              	                /* Main Stack initialization. Note, it assumes that the
  228              	                   stack size is a multiple of 4 so the linker file must
@@ -297,10 +298,10 @@ ARM GAS  /tmp/ccjqUBjm.s 			page 1
  279 00a4 FFF7FEFF 	                bl      __init_ram_areas
  280              	#endif
  281              	
+ARM GAS  /tmp/ccP6RAbV.s 			page 6
+
+
  282              	                /* Late initialization..*/
-ARM GAS  /tmp/ccjqUBjm.s 			page 6
-
-
  283 00a8 FFF7FEFF 	                bl      __late_init
  284              	
  285              	#if CRT0_CALL_CONSTRUCTORS == TRUE
@@ -338,7 +339,7 @@ ARM GAS  /tmp/ccjqUBjm.s 			page 1
  315      00000000 
  315      00000000 
  315      00000000 
-ARM GAS  /tmp/ccjqUBjm.s 			page 7
+ARM GAS  /tmp/ccP6RAbV.s 			page 7
 
 
 DEFINED SYMBOLS

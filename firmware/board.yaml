@@ -1,0 +1,23 @@
+name: Altimeter
+lsefreq: 0
+hsefreq: 26000000
+voltage: 3.3
+mcutype: STM32F411xE
+default: input, pushpull, starthigh, pullup, highspeed
+pins:
+    SWDIO:  pa13, af0
+    SWCLK:  pa14, pulldown, af0
+    
+    STAT:   pb8, output, pushpull, startlow
+    BEEP:   pb9, output, pushpull, startlow, pulldown
+    
+    I2C1_SDA:   pb7, af4, opendrain
+    I2C1_SCL:   pb6, af4, opendrain
+    
+    SDIO_DO:    pb4, af12
+    SDIO_D1:    pa8, af12
+    SDIO_D2:    pa9, af12
+    SDIO_D3:    pb5, af12
+    SDIO_CK:    pb15, af12
+    SDIO_CMD:   pa6, af12
+

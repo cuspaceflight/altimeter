@@ -14,7 +14,7 @@ static THD_FUNCTION(STAT, arg) {
         chThdSleepMilliseconds(100);
         
         palClearPad(GPIOB, GPIOB_STAT);
-        //palClearPad(GPIOB, GPIOB_BEEP);    
+       //palClearPad(GPIOB, GPIOB_BEEP);    
         chThdSleepMilliseconds(500);
     }
 }

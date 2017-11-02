@@ -2,9 +2,10 @@
 #include "hal.h"
 #include "measure.h"
 #include "status.h"
+#include "logging.h"
 
 /* Application Entry Point */
-int main(void) {
+int main(void){
 
     /* Allow debug access during WFI sleep */
     DBGMCU->CR |= DBGMCU_CR_DBG_SLEEP;
@@ -15,6 +16,9 @@ int main(void) {
     
     /* Start Status Monitor */
     begin_status();
+    
+    /* Start Datalogger */
+    logging_init();
 
     /* Start Measurement Handler*/
     begin_measurements();

@@ -117,7 +117,9 @@ CSRC = $(STARTUPSRC) \
        $(BOARDSRC) \
        $(FATFSSRC) \
        $(TESTSRC) \
-       main.c ms5611.c measure.c status.c microsd.c
+       $(CHIBIOS)/os/hal/lib/streams/memstreams.c \
+       $(CHIBIOS)/os/hal/lib/streams/chprintf.c \
+       main.c ms5611.c measure.c status.c microsd.c logging.c
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.

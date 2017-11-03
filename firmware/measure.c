@@ -9,29 +9,26 @@ static THD_WORKING_AREA(meas_thd_wa, 1024);
 static THD_FUNCTION(meas_thd, arg) {
     
     (void)arg;
-    uint32_t pressure;  
-    uint8_t buffer[4];
+    uint32_t pressure;
     
     /* Configure Pressure Sensor */
     ms5611_configure(&I2CD1);
     
-    /* Test Code */
+    /* Log Raw Data to SD Card */
     while(true) {
      
-        pressure = get_pressure();
+        /* Read Pressure */
+        pressure = get_pressure();     
         
-        int i = 0;
-        while (i < 4) {
-            buffer[i] = (pressure >> i*8);
-        }
+        /* Log Pressure */
+        log_raw_pressure(pressure);    
         
-        log_buffer(buffer, 4);    
-        
-        chThdSleepMilliseconds(50);
+        /* Sleep */
+        chThdSleepMilliseconds(5);
     }
 }
     
-
+/* Start Measuring */
 void begin_measurements(void) {
 
     chThdCreateStatic(meas_thd_wa, sizeof(meas_thd_wa), HIGHPRIO, meas_thd, NULL);

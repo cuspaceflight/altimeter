@@ -6,6 +6,7 @@
 #include <stdbool.h>
 
 #include "microsd.h"
+#include "status.h"
 
 /* Function Prototypes */
 static bool microsd_card_init(FATFS* fs);
@@ -35,7 +36,8 @@ static bool microsd_card_init(FATFS* fs) {
     int i = sdcConnect(&SDCD1);
     if (i) {
         
-        /* SD Card Connection Failure */ 
+        /* SD Card Connection Failure */
+        set_status(ERROR);  
         return false;
     }
 
@@ -43,7 +45,8 @@ static bool microsd_card_init(FATFS* fs) {
     sderr = f_mount(fs, "A", 0);
     if(sderr != FR_OK) {
 		
-		/* SD Card Mounting Failure */		
+		/* SD Card Mounting Failure */
+		set_status(ERROR); 	
 	};
     
     /* Return TRUE */
@@ -126,10 +129,16 @@ SDRESULT microsd_open_file_inc(FIL* fp, const char* path, const char* ext, SDFS*
             continue;
         } else {
             if(sderr != FR_OK) {
-            
-				/* Failed to Open File */            
+                        
+				/* Failed to Open File */
+				set_status(ERROR); 
+				return sderr;        
+			} else {
+			
+			    /* Successfully Opened File */
+			    set_status(GOOD);
+			    return sderr;
 			}
-            return sderr;
         }
     }
 }
@@ -174,7 +183,7 @@ SDRESULT microsd_read(SDFILE* fp, const char* buf, uint32_t btr) {
     sderr = f_read (fp, (void*) buf, btr, &bytes_read);	
     
     /* Test for success */
-    	if(bytes_read < btr) {
+	if(bytes_read < btr) {
 	}
 
     /* Test for Succesful Write */

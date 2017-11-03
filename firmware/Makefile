@@ -235,6 +235,11 @@ flash: build/$(PROJECT).elf
 					  -ex 'attach 1' \
 					  -ex 'load' build/$(PROJECT).elf \
 
+power:
+	arm-none-eabi-gdb --batch \
+	                  -ex 'target extended-remote /dev/ttyACM0' \
+		              -ex 'monitor tpwr enable'
+					  
 debug: build/$(PROJECT).elf
 	arm-none-eabi-gdb -ex 'target extended-remote /dev/ttyACM0' \
 		              -ex 'monitor swdp_scan' \

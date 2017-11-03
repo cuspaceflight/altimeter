@@ -1,7 +1,7 @@
 #ifndef LOGGING_H
 #define LOGGING_H
 
-#define TYPE_BUFFER     0x01
+#define TYPE_RAW_PRESSURE     0x01
 
 /* Log Message */
 typedef struct __attribute__((packed)) {
@@ -14,7 +14,7 @@ typedef struct __attribute__((packed)) {
 
 
 /* Logging Functions */
-void log_buffer(uint8_t *data, size_t len);
+void log_raw_pressure(uint32_t data);
 
 /* Start Logging Thread */
 void logging_init(void);

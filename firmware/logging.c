@@ -90,8 +90,7 @@ THD_FUNCTION(logging_thread, arg) {
             /* Attempt to Write Cache */
             write_res = microsd_write(&file, (char*)log_cache, LOG_CACHE_SIZE);
                              
-            while (write_res != FR_OK) {
-           
+            while (write_res != FR_OK) {           
                 
                 /* Attempt to Re-open File */
                 microsd_close_file(&file);
@@ -135,14 +134,23 @@ void logging_init(void) {
 }
 
 
-/* Log a buffer Message */
-void log_buffer(uint8_t *data, size_t len) {
+/* Log a buffer */
+void log_raw_pressure(uint32_t data) {
+    
+    /* uint32_t to uint8_t[4] */
+    uint8_t buffer[4] = {0};
+    uint8_t i = 0;
+    while (i < 4) {
+        buffer[i] = (data >> i*8);
+        i=i+1;
+    }
 
+    /* Populate and log packet */
     altimeter_log pkt;
-    pkt.type = TYPE_BUFFER;
+    pkt.type = TYPE_RAW_PRESSURE;
     pkt.timestamp = chVTGetSystemTime();
     memset(pkt.payload, 0, 123);
-    memcpy(pkt.payload, data, len);
+    memcpy(pkt.payload, buffer, 4);
     _log(&pkt);
 }
 

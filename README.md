@@ -8,7 +8,7 @@
 $ git clone https://github.com/cuspaceflight/altimeter.git
 $ cd altimeter
 $ git submodule update --init
-$ cd ChibiOs
+$ cd ChibiOS
 $ git checkout stable_16.1.x
 ```
 2. To succesfully compile firmware you will need to install gcc:

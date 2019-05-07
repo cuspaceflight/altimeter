@@ -137,20 +137,12 @@ void logging_init(void) {
 /* Log a buffer */
 void log_raw_pressure(uint32_t data) {
     
-    /* uint32_t to uint8_t[4] */
-    uint8_t buffer[4] = {0};
-    uint8_t i = 0;
-    while (i < 4) {
-        buffer[i] = (data >> i*8);
-        i=i+1;
-    }
-
     /* Populate and log packet */
     altimeter_log pkt;
     pkt.type = TYPE_RAW_PRESSURE;
     pkt.timestamp = chVTGetSystemTime();
-    memset(pkt.payload, 0, 123);
-    memcpy(pkt.payload, buffer, 4);
+    memset(pkt.payload, 0, 11);
+    memcpy(pkt.payload, &data, 4);
     _log(&pkt);
 }
 

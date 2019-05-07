@@ -8,7 +8,7 @@ typedef struct __attribute__((packed)) {
 
     uint8_t type;
     systime_t timestamp;
-    uint8_t payload[123]; 
+    uint8_t payload[11]; 
     
 } altimeter_log;
 

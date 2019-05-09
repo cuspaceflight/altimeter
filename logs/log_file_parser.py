@@ -4,7 +4,10 @@ import sys
 import pvlib
 import struct
 import numpy as np
+from scipy import signal
+import matplotlib as mpl
 import matplotlib.pyplot as plt
+
 
 # Useage
 if len(sys.argv) != 2:
@@ -23,31 +26,41 @@ with open(sys.argv[1], 'rb') as log:
     log.seek(0)
     print("File contains", num_samples, "samples:")
 
+    # Init Arrays
     time = np.zeros(num_samples, dtype=float)
     pressure = np.zeros(num_samples, dtype=float)
     height = np.zeros(num_samples, dtype=float)
 
+    # Extract Pressure Readings in mBar
     for n in range(0, num_samples):
         log.seek(n*PACKET_SIZE)
         data = struct.unpack('<BI', log.read(5))
         if (data[0] == MESSAGE_PRESSURE):
             time[n] = data[1]/10000.0
-            pressure[n] = struct.unpack('<I', log.read(4))[0]
-            height[n] = pvlib.atmosphere.pres2alt(pressure[n])
-            print("Time = %.3f" % time[n], "s", "    Pressure = %.2f" % (pressure[n]/100.0), "mBar", "    Height = %.2f" % height[n], "m")
+            pressure[n] = struct.unpack('<I', log.read(4))[0]          
+            print("Time = %.3f" % time[n], "s", "    Pressure = %.2f" % (pressure[n]/100.0), "mBar")
 
 
-fig, ax1 = plt.subplots()
+# Low Pass Filter Sampled Data
+b, a = signal.butter(7, 2.5, fs=20.0)
+press_filt = signal.filtfilt(b, a, pressure)
+
+# Convert to Altitude using ISA Lookup Table
+height = pvlib.atmosphere.pres2alt(press_filt)
+
+# Plot Output
+fig, axs = plt.subplots(2, 1)
 color = 'tab:red'
-ax1.set_xlabel('Time (s)')
-ax1.set_ylabel('Pressure (mBar)', color=color)
-ax1.plot(time, pressure/100.0, color=color)
-ax1.tick_params(axis='y', labelcolor=color)
-
-ax2 = ax1.twinx()
+axs[0].plot(time, press_filt/100.0, color=color)
+axs[0].set_xlabel('Time')
+axs[0].set_ylabel('Pressure (mBar)', color=color)
+axs[0].yaxis.set_major_formatter(mpl.ticker.StrMethodFormatter('{x:.1f}'))
+axs[0].grid(True)
 color = 'tab:blue'
-ax2.set_ylabel('Height', color=color)
-ax2.plot(time, height, color=color)
-ax2.tick_params(axis='y', labelcolor=color)
+axs[1].plot(time, height, color=color)
+axs[1].set_xlabel('Time')
+axs[1].set_ylabel('Height (m)', color=color)
+axs[1].grid(True)
+
 fig.tight_layout()
 plt.show()

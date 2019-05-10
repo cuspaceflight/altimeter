@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import sys
-import pvlib
 import struct
 import numpy as np
 from scipy import signal
@@ -17,7 +16,8 @@ if len(sys.argv) != 2:
 # Message Type Definitions
 MESSAGE_PRESSURE = 1
 PACKET_SIZE = 16    
-        
+
+
 # Open log file
 with open(sys.argv[1], 'rb') as log:
 
@@ -38,15 +38,26 @@ with open(sys.argv[1], 'rb') as log:
         if (data[0] == MESSAGE_PRESSURE):
             time[n] = data[1]/10000.0
             pressure[n] = struct.unpack('<I', log.read(4))[0]          
-            print("Time = %.3f" % time[n], "s", "    Pressure = %.2f" % (pressure[n]/100.0), "mBar")
 
 
 # Low Pass Filter Sampled Data
 b, a = signal.butter(7, 2.5, fs=20.0)
 press_filt = signal.filtfilt(b, a, pressure)
 
-# Convert to Altitude using ISA Lookup Table
-height = pvlib.atmosphere.pres2alt(press_filt)
+
+# Convert to Altitude using Barometric Formula with h = 0 to 11,000 m
+N = -5.257
+Pb = 101325.0
+Tb = 288.15
+Lb = -0.0065
+tmp = np.power((press_filt/Pb), 1/N)
+height = (Tb/Lb)*((np.power(tmp, -1)-1))
+
+
+# Print Results
+for j in range(0, num_samples):
+    print("Time = %.3f" % time[j], "s", "    Pressure = %.2f" % (press_filt[j]/100.0), "mBar", "    Height = %.1f" % height[j], "m")
+
 
 # Plot Output
 fig, axs = plt.subplots(2, 1)

@@ -24,8 +24,7 @@ with open(sys.argv[1], 'rb') as log:
     log.read()
     num_samples = int(log.tell()/PACKET_SIZE)
     log.seek(0)
-    print("File contains", num_samples, "samples:")
-
+    
     # Init Arrays
     time = np.zeros(num_samples, dtype=float)
     pressure = np.zeros(num_samples, dtype=float)
@@ -41,23 +40,28 @@ with open(sys.argv[1], 'rb') as log:
 
 
 # Low Pass Filter Sampled Data
-b, a = signal.butter(7, 2.5, fs=20.0)
+b, a = signal.butter(5, 2.5, fs=20.0)
 press_filt = signal.filtfilt(b, a, pressure)
 
 
-# Convert to Altitude using Barometric Formula with h = 0 to 11,000 m
+# Convert to Altitude using Barometric Formula (0 - 33,000 ft)
 N = -5.257
-Pb = 101325.0
-Tb = 288.15
+Tb = 293
 Lb = -0.0065
-tmp = np.power((press_filt/Pb), 1/N)
-height = (Tb/Lb)*((np.power(tmp, -1)-1))
+Pb = np.mean(press_filt[0:127])
+k = np.power((press_filt/Pb), 1/N)
+height = (Tb/Lb)*((np.power(k, -1)-1))
 
 
 # Print Results
 for j in range(0, num_samples):
-    print("Time = %.3f" % time[j], "s", "    Pressure = %.2f" % (press_filt[j]/100.0), "mBar", "    Height = %.1f" % height[j], "m")
+    print("Time = %.3f s" % time[j], "    Pressure = %.2f mBar" % (press_filt[j]/100.0), "    Height = %.1f m" % height[j])
 
+print("")
+print("")
+print("File contains", num_samples, "samples:")
+print("Ground Level Pressure = %.2f mBar" % (Pb/100.0))
+print("Maximum Altitude = %.2f m" % np.max(height))
 
 # Plot Output
 fig, axs = plt.subplots(2, 1)
